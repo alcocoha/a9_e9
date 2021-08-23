@@ -1,8 +1,8 @@
+import Form from './form'
+import "./styles.css";
 
 export default function Colaboradores() {
-  return (
-    <div>
-      <h1>Colaboradores</h1>
-    </div>
-  )
+	return (
+		<Form/>
+	);
 }

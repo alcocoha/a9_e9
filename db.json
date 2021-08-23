@@ -130,5 +130,31 @@
       "cve_departamento": 6,
       "desc_departamento": "Guardaespaldas"
     }
+  ],
+  "buscarProyecto": [
+    {
+      "cve_proyecto": 1,
+      "desc_proyecto": "Planta",
+      "f_inicio": "2021-08-22 19:44:53",
+      "f_fin": "2235-03-14 19:44:53",
+      "f_convocatoria_inicio": "2021-08-22 19:44:53",
+      "f_convocatoria_fin": "2235-03-14 19:44:53"
+    },
+    {
+      "cve_proyecto": 2,
+      "desc_proyecto": "Seguridad UVM San Rafael",
+      "f_inicio": "2021-08-22 19:44:53",
+      "f_fin": "2022-08-22 19:44:53",
+      "f_convocatoria_inicio": "2021-08-22 19:44:53",
+      "f_convocatoria_fin": "2021-09-21 19:44:53"
+    },
+    {
+      "cve_proyecto": 3,
+      "desc_proyecto": "Cliente XXX",
+      "f_inicio": "2021-08-22 19:44:53",
+      "f_fin": "2022-02-18 19:44:53",
+      "f_convocatoria_inicio": "2021-08-22 19:44:53",
+      "f_convocatoria_fin": "2021-09-21 19:44:53"
+    }
   ]
 }

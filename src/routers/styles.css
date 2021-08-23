@@ -1,0 +1,16 @@
+.link-btn{
+  background-color: purple;
+  color: white;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  padding: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+
+}
+
+.link-btn:hover{
+  background-color: cyan;
+  color: purple
+}

@@ -1,0 +1,48 @@
+.alta-puesto{
+  background-color: yellow;
+}
+
+.alta-puesto__h1{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+}
+
+.alta-puesto__container{
+  background-color: pink;
+  text-align: center;
+  display: flex;
+  row-gap: 40px;
+  flex-direction: column;
+}
+
+.alta-puesto__form{
+  background-color: cyan;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 40px;
+}
+
+.alta-puesto__form-item{
+  display: flex;
+  flex-direction: column;
+}
+
+.alta-puesto__form-label{
+  text-align: left;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.alta-puesto__form-select{
+  padding: 5px;
+  font-size: 14px;
+}
+
+.alta-puesto__container-button{
+  background-color: purple;
+}
+
+.alta-puesto__button{
+  font-size: 20px;
+  padding: 5px
+}

@@ -52,14 +52,12 @@ export default function Form() {
       ))
 
   const sendPuesto = () => {
-    const { desc_puesto: descPuesto, departamento_cve_area: departamentoCVEArea } =
-      puestosOptions.find((item) => parseInt(item.cve_puesto) === parseInt(selectsValue.puesto))
     const data = {
       cve_departamento: selectsValue.departamento,
-      cve_puesto: selectsValue.puesto,
-      desc_puesto: descPuesto,
+      cve_puesto: String(puestosOptions.length + 1),
+      desc_puesto: selectsValue.puesto,
       fecha_creacion: new Date(Date.now()).toLocaleDateString(),
-      departamento_cve_area: departamentoCVEArea,
+      departamento_cve_area: selectsValue.area,
     }
 
     console.log('DATA', data)
@@ -101,10 +99,7 @@ export default function Form() {
           </div>
           <div className="alta-puesto__form-item">
             <label className="alta-puesto__form-label">Puesto</label>
-            <select name="puesto" className="alta-puesto__form-select" onChange={handleSelect}>
-              <option value={null}>Selecciona una opción</option>
-              {buildPuestosOptions()}
-            </select>
+            <input type="text" name="puesto" onChange={handleSelect}/>
           </div>
         </div>
         <div className="alta-puesto__container-button">
