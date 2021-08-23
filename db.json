@@ -1,0 +1,134 @@
+{
+  "buscarArea": [
+    {
+      "cve_area": 1,
+      "desc_area": "Sistemas"
+    },
+    {
+      "cve_area": 2,
+      "desc_area": "Recursos Humanos"
+    },
+    {
+      "cve_area": 3,
+      "desc_area": "Servicios"
+    }
+  ],
+  "buscarPuesto": [
+    {
+      "cve_departamento": 1,
+      "cve_puesto": 1,
+      "desc_puesto": "Coordinador",
+      "fecha_creacion": "2021-08-22 19:44:53",
+      "departamento_cve_area": 1
+    },
+    {
+      "cve_departamento": 1,
+      "cve_puesto": 2,
+      "desc_puesto": "Auxiliar",
+      "fecha_creacion": "2021-08-22 19:44:53",
+      "departamento_cve_area": 1
+    },
+    {
+      "cve_departamento": 2,
+      "cve_puesto": 3,
+      "desc_puesto": "Lider",
+      "fecha_creacion": "2021-08-22 19:44:53",
+      "departamento_cve_area": 1
+    },
+    {
+      "cve_departamento": 2,
+      "cve_puesto": 4,
+      "desc_puesto": "Desarrollador",
+      "fecha_creacion": "2021-08-22 19:44:53",
+      "departamento_cve_area": 1
+    },
+    {
+      "cve_departamento": 3,
+      "cve_puesto": 5,
+      "desc_puesto": "Gerente",
+      "fecha_creacion": "2021-08-22 19:44:53",
+      "departamento_cve_area": 2
+    },
+    {
+      "cve_departamento": 3,
+      "cve_puesto": 6,
+      "desc_puesto": "Reclutador",
+      "fecha_creacion": "2021-08-22 19:44:53",
+      "departamento_cve_area": 2
+    },
+    {
+      "cve_departamento": 4,
+      "cve_puesto": 7,
+      "desc_puesto": "Jefe Departamento",
+      "fecha_creacion": "2021-08-22 19:44:53",
+      "departamento_cve_area": 2
+    },
+    {
+      "cve_departamento": 4,
+      "cve_puesto": 8,
+      "desc_puesto": "Capacitador",
+      "fecha_creacion": "2021-08-22 19:44:53",
+      "departamento_cve_area": 2
+    },
+    {
+      "cve_departamento": 5,
+      "cve_puesto": 9,
+      "desc_puesto": "Capitán",
+      "fecha_creacion": "2021-08-22 19:44:53",
+      "departamento_cve_area": 3
+    },
+    {
+      "cve_departamento": 5,
+      "cve_puesto": 10,
+      "desc_puesto": "Vigilante",
+      "fecha_creacion": "2021-08-22 19:44:53",
+      "departamento_cve_area": 3
+    },
+    {
+      "cve_departamento": 6,
+      "cve_puesto": 11,
+      "desc_puesto": "Táctico",
+      "fecha_creacion": "2021-08-22 19:44:53",
+      "departamento_cve_area": 3
+    },
+    {
+      "cve_departamento": 6,
+      "cve_puesto": 12,
+      "desc_puesto": "Elemento",
+      "fecha_creacion": "2021-08-22 19:44:53",
+      "departamento_cve_area": 3
+    }
+  ],
+  "buscarDepartamento": [
+    {
+      "cve_area": 1,
+      "cve_departamento": 1,
+      "desc_departamento": "Administración de Proyectos"
+    },
+    {
+      "cve_area": 1,
+      "cve_departamento": 2,
+      "desc_departamento": "Desarrollo"
+    },
+    {
+      "cve_area": 2,
+      "cve_departamento": 3,
+      "desc_departamento": "Reclutamiento"
+    },
+    {
+      "cve_area": 2,
+      "cve_departamento": 4,
+      "desc_departamento": "Capacitación"
+    },
+    {
+      "cve_area": 3,
+      "cve_departamento": 5,
+      "desc_departamento": "Vigilancia"
+    },
+    {
+      "cve_area": 3,
+      "cve_departamento": 6,
+      "desc_departamento": "Guardaespaldas"
+    }
+  ]
+}
