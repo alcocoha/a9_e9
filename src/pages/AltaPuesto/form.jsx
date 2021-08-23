@@ -18,16 +18,20 @@ export default function Form() {
     })()
   }, [])
 
+  const handleSelect = (e) => {
+    console.log("HANDLE--->", e.target.value)
+  }
+
   return (
     <div className="alta-puesto">
       <div className="alta-puesto__container">
         <h1 className="alta-puesto__h1">Alta puesto</h1>
         <div className="alta-puesto__form">
           <div className="alta-puesto__form-item">
-            <label for="areas" className="alta-puesto__form-label">
+            <label className="alta-puesto__form-label">
               Área
             </label>
-            <select name="areas" className="alta-puesto__form-select">
+            <select name="areas" className="alta-puesto__form-select" onChange={handleSelect}>
               {areasOptions &&
                 areasOptions.map((area, index) => (
                   <option value={area.cve_area} key={index}>
@@ -36,8 +40,8 @@ export default function Form() {
                 ))}
             </select>
           </div>
-          <div className="alta-puesto__form-item">
-            <label for="departamentos" className="alta-puesto__form-label">
+          <div className="alta-puesto__form-item" onChange={handleSelect}>
+            <label className="alta-puesto__form-label">
               Departamento
             </label>
             <select name="departamentos" className="alta-puesto__form-select">
@@ -50,10 +54,10 @@ export default function Form() {
             </select>
           </div>
           <div className="alta-puesto__form-item">
-            <label for="puestos" className="alta-puesto__form-label">
+            <label className="alta-puesto__form-label">
               Puesto
             </label>
-            <select name="puestos" className="alta-puesto__form-select">
+            <select name="puestos" className="alta-puesto__form-select"  onChange={handleSelect}>
               {puestosOptions &&
                 puestosOptions.map((puesto, index) => (
                   <option value={puesto.cve_puesto} key={index}>
