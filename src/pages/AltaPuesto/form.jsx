@@ -6,6 +6,11 @@ export default function Form() {
   const [areasOptions, setAreasOptions] = useState(undefined)
   const [departamentosOptions, setDepartamentosOptions] = useState(undefined)
   const [puestosOptions, setPuestosOptions] = useState(undefined)
+  const [selectsValue, setSelectsValue] = useState({
+    area: null,
+    departamento: null,
+    puesto: null,
+  })
 
   useEffect(() => {
     fetch(`${API_URL}buscarArea`)
@@ -22,7 +27,52 @@ export default function Form() {
   }, [])
 
   const handleSelect = (e) => {
-    console.log('HANDLE--->', e.target.value)
+    setSelectsValue({
+      ...selectsValue,
+      [e.target.name]: e.target.value,
+    })
+  }
+
+  const buildDepartamentosOptions = () =>
+    departamentosOptions
+      ?.filter((item) => parseInt(selectsValue.area) === parseInt(item.cve_area))
+      .map((departamento, index) => (
+        <option value={departamento.cve_departamento} key={index}>
+          {departamento.desc_departamento}
+        </option>
+      ))
+
+  const buildPuestosOptions = () =>
+    puestosOptions
+      ?.filter((item) => parseInt(selectsValue.departamento) === parseInt(item.cve_departamento))
+      .map((puesto, index) => (
+        <option value={puesto.cve_puesto} key={index}>
+          {puesto.desc_puesto}
+        </option>
+      ))
+
+  const sendPuesto = () => {
+    const { desc_puesto: descPuesto, departamento_cve_area: departamentoCVEArea } =
+      puestosOptions.find((item) => parseInt(item.cve_puesto) === parseInt(selectsValue.puesto))
+    const data = {
+      cve_departamento: selectsValue.departamento,
+      cve_puesto: selectsValue.puesto,
+      desc_puesto: descPuesto,
+      fecha_creacion: new Date(Date.now()).toLocaleDateString(),
+      departamento_cve_area: departamentoCVEArea,
+    }
+
+    console.log('DATA', data)
+
+    fetch(`${API_URL}/puestos/guardarPuesto`, {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
   }
 
   return (
@@ -32,7 +82,8 @@ export default function Form() {
         <div className="alta-puesto__form">
           <div className="alta-puesto__form-item">
             <label className="alta-puesto__form-label">Área</label>
-            <select name="areas" className="alta-puesto__form-select" onChange={handleSelect}>
+            <select name="area" className="alta-puesto__form-select" onChange={handleSelect}>
+              <option value={null}>Selecciona una opción</option>
               {areasOptions &&
                 areasOptions.map((area, index) => (
                   <option value={area.cve_area} key={index}>
@@ -43,29 +94,23 @@ export default function Form() {
           </div>
           <div className="alta-puesto__form-item" onChange={handleSelect}>
             <label className="alta-puesto__form-label">Departamento</label>
-            <select name="departamentos" className="alta-puesto__form-select">
-              {departamentosOptions &&
-                departamentosOptions.map((departamento, index) => (
-                  <option value={departamento.cve_departamento} key={index}>
-                    {departamento.desc_departamento}
-                  </option>
-                ))}
+            <select name="departamento" className="alta-puesto__form-select">
+              <option value={null}>Selecciona una opción</option>
+              {buildDepartamentosOptions()}
             </select>
           </div>
           <div className="alta-puesto__form-item">
             <label className="alta-puesto__form-label">Puesto</label>
-            <select name="puestos" className="alta-puesto__form-select" onChange={handleSelect}>
-              {puestosOptions &&
-                puestosOptions.map((puesto, index) => (
-                  <option value={puesto.cve_puesto} key={index}>
-                    {puesto.desc_puesto}
-                  </option>
-                ))}
+            <select name="puesto" className="alta-puesto__form-select" onChange={handleSelect}>
+              <option value={null}>Selecciona una opción</option>
+              {buildPuestosOptions()}
             </select>
           </div>
         </div>
         <div className="alta-puesto__container-button">
-          <button className="alta-puesto__button">Guardar</button>
+          <button className="alta-puesto__button" onClick={sendPuesto}>
+            Guardar
+          </button>
         </div>
       </div>
     </div>
