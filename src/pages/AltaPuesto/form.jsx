@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getData } from '../../api'
+import { API_URL } from '../../constants'
 import './styles.css'
 
 export default function Form() {
@@ -8,18 +8,21 @@ export default function Form() {
   const [puestosOptions, setPuestosOptions] = useState(undefined)
 
   useEffect(() => {
-    ;(async () => {
-      const areas = await getData('buscarArea')
-      setAreasOptions(areas)
-      const departamentos = await getData('buscarDepartamento')
-      setDepartamentosOptions(departamentos)
-      const puestos = await getData('buscarPuesto')
-      setPuestosOptions(puestos)
-    })()
+    fetch(`${API_URL}buscarArea`)
+      .then((resp) => resp.json())
+      .then((data) => setAreasOptions(data))
+
+    fetch(`${API_URL}buscarDepartamento`)
+      .then((resp) => resp.json())
+      .then((data) => setDepartamentosOptions(data))
+
+    fetch(`${API_URL}buscarPuesto`)
+      .then((resp) => resp.json())
+      .then((data) => setPuestosOptions(data))
   }, [])
 
   const handleSelect = (e) => {
-    console.log("HANDLE--->", e.target.value)
+    console.log('HANDLE--->', e.target.value)
   }
 
   return (
@@ -28,9 +31,7 @@ export default function Form() {
         <h1 className="alta-puesto__h1">Alta puesto</h1>
         <div className="alta-puesto__form">
           <div className="alta-puesto__form-item">
-            <label className="alta-puesto__form-label">
-              Área
-            </label>
+            <label className="alta-puesto__form-label">Área</label>
             <select name="areas" className="alta-puesto__form-select" onChange={handleSelect}>
               {areasOptions &&
                 areasOptions.map((area, index) => (
@@ -41,9 +42,7 @@ export default function Form() {
             </select>
           </div>
           <div className="alta-puesto__form-item" onChange={handleSelect}>
-            <label className="alta-puesto__form-label">
-              Departamento
-            </label>
+            <label className="alta-puesto__form-label">Departamento</label>
             <select name="departamentos" className="alta-puesto__form-select">
               {departamentosOptions &&
                 departamentosOptions.map((departamento, index) => (
@@ -54,10 +53,8 @@ export default function Form() {
             </select>
           </div>
           <div className="alta-puesto__form-item">
-            <label className="alta-puesto__form-label">
-              Puesto
-            </label>
-            <select name="puestos" className="alta-puesto__form-select"  onChange={handleSelect}>
+            <label className="alta-puesto__form-label">Puesto</label>
+            <select name="puestos" className="alta-puesto__form-select" onChange={handleSelect}>
               {puestosOptions &&
                 puestosOptions.map((puesto, index) => (
                   <option value={puesto.cve_puesto} key={index}>
